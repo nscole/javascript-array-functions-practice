@@ -53,9 +53,41 @@ console.log(firstNames);
 
 //***REDUCE***
 //1. Get total mass of all characters
+const totalMass = characters.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue.mass;
+}, 0)
+console.log(totalMass);
 //2. Get total height of all characters
-//3. Get total number of characters by eye color
+const totalHeight = characters.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue.height;
+}, 0)
+console.log(totalHeight)
+//3. Get total number of characters by eye color - becomes OBJECT OR MAP
+const totalEyeColour = characters.reduce((accumulator, currentValue) => { 
+    const color = currentValue.eye_color;
+    if (accumulator[color]){
+        accumulator[color] ++;
+    } else { accumulator[color] = 1;}
+    return accumulator;
+},{} );
+console.log(totalEyeColour)
 //4. Get total number of characters in all the character names
+const totalCharacterNames = characters.reduce((accumulator, currentValue) => 
+    accumulator + currentValue.name.length, 0);
+console.log(totalCharacterNames);
+
+// const characterNameTotal = characters.reduce((accumulator, currentValue) => {
+//     const character = currentValue.name;
+//     if (accumulator[character]){
+//         accumulator[character] ++;
+//     }
+//         else {
+//             accumulator[character] = 1;}
+//         return accumulator;
+//     },{} );
+// console.log(characterNameTotal)
+
+
 
 //***FILTER***
 //1. Get characters with mass greater than 100
