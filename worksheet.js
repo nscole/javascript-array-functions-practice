@@ -29,11 +29,27 @@ const characters = [
     },
 ];
 
+
+
+
 //***MAP***
 //1. Get array of all names
+const names = characters.map(character => {
+    return character.name;
+})
+console.log(names);
 //2. Get array of all heights
+const height = characters.map((character) => character.height);
+console.log(height);
 //3. Get array of objects with just name and height properties
-//4. Get array of all first names
+const minifiedRecords = characters.map((character) => ({
+    name: character.name,
+    height: character.height,
+}));
+console.log(minifiedRecords);
+//4. Get array of all first names - (.split is splitting based on the space) and [0] which is the first in the array.
+const firstNames = characters.map((character) => character.name.split(' ')[0]);
+console.log(firstNames);
 
 //***REDUCE***
 //1. Get total mass of all characters
